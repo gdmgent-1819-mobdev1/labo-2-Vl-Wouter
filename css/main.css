@@ -1,0 +1,119 @@
+/* Reset and initial css */
+html, body {
+    background-color: #f5fffd;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Variables */
+:root {
+    --light: #f6f8ff;
+    --dark: #050517;
+    --like: #23ce6b;
+    --dislike: #fc0406;
+    --lightred: #f63854;
+}
+
+.app {
+    font-family: "Ubuntu", sans-serif;
+    background: var(--light);
+    width: 540px;
+    height: 800px;
+    box-shadow: 0 0 6px #666;
+    color: var(--dark);
+}
+
+.header {
+    color: var(--lightred);
+    height: 50px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 24pt;
+    padding: 0 4%;
+    box-shadow: 0 2px 8px #666;
+}
+
+.logo__type {
+    font-family: "Pacifico", "Ubuntu", sans-serif;
+}
+
+.profile {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 10%;
+    box-shadow: 0 0 10px var(--lightred);
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    padding: 4% 0;
+}
+
+.profile__image {
+    width: 350px;
+    height: 350px;
+    margin: 4% auto;
+    background-color: var(--lightred);
+}
+
+.profile__picture {
+    width: 100%;
+    height: 100%;
+}
+
+.profile__info {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.profile__name {
+    font-weight: 700;
+    justify-self: flex-start;
+}
+
+.profile__age {
+    float: right;
+}
+.profile__home {
+    font-style: italic;
+}
+
+.buttons {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+    height: 200px;
+}
+
+.button {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 6px #666;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    font-size: 38pt;
+    color: var(--light);
+}
+
+.button__dislike {
+    background: var(--dislike);
+}
+
+.button__like {
+    background: var(--like);
+}
