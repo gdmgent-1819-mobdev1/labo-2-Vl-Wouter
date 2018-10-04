@@ -9,8 +9,24 @@ class Profile {
 }
 
 let profile;
-let profilekey = 0;
-let clickcount = 0;
+let profilekey;
+// console.log(localStorage.getItem('profiles'));
+if(localStorage.getItem('profiles') == null) {
+    profilekey = 0;
+    getData(function(data) {
+        console.log(data);
+    });
+} else {
+    profilekey = localStorage.getItem('profiles');
+    getProfile(profilekey);
+}
+let clickcount;
+if(localStorage.getItem('clicks') == null) {
+    clickcount = 0;
+} else {
+    clickcount = localStorage.getItem('clicks');
+}
+
 
 function toLocalStorage(name, values) {
     localStorage.setItem(name, values);
@@ -20,18 +36,20 @@ function getLocalStorage(key) {
     return localStorage.getItem(key);
 }
 
-function getData() {
+function getData(callback) {
     fetch('https://randomuser.me/api/?results=10').then(function(response) {
         return response.json();
     }).then(function(data) {
-        console.log(data.results);
-        console.log(profilekey);
-        for(let i = 0; i < data.results.length; i++) {
-            // stringArray.push(JSON.stringify(data.results[i]));
-            let person = new Profile(data.results[i].name.first, data.results[i].dob.age, data.results[i].location.city, data.results[i].picture.large);
-            toLocalStorage(i + profilekey, JSON.stringify(person));
+        console.log(data);
+        callback(data);
+        // for(let i = 0; i < data.results.length; i++) {
+        //     // stringArray.push(JSON.stringify(data.results[i]));
+        //     let person = new Profile(data.results[i].name.first, data.results[i].dob.age, data.results[i].location.city, data.results[i].picture.large);
+        //     toLocalStorage(i + profilekey, JSON.stringify(person));
             
-        }
+        // }
+        // toLocalStorage('profiles', profilekey);
+        // profile = getProfile(profilekey);
         // toLocalStorage('people', stringArray);
     });
 }
@@ -56,8 +74,9 @@ function getProfile(key) {
 function refreshData() {
     document.getElementById('profilearea').innerHTML = '';
     clickcount = 0;
-    getData();
-    console.log(profilekey);
+    getData( function(data) {
+        console.log(data);
+    });
     profile = getProfile(profilekey);
 }
 
@@ -66,22 +85,21 @@ function like() {
     profile.liked = 1;
     toLocalStorage(profilekey, JSON.stringify(profile));
 
-    if(clickcount > 9) {
+    if(clickcount == 9) {
         refreshData();
     }
     else {
         profilekey++;
         profile = getProfile(profilekey);
+        clickcount++;
+        toLocalStorage('clicks', clickcount);
+        toLocalStorage('profiles', profilekey);
     }
 }
 
 function dislike() {
 
 }
-
-
-// Onload
-window.onload = refreshData();
 
 // event listeners
 let likebutton = document.getElementById('yes');
