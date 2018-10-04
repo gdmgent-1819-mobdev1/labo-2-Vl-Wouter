@@ -7,7 +7,7 @@ html, body {
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    width: 100vw;
 }
 
 /* Variables */
@@ -22,8 +22,8 @@ html, body {
 .app {
     font-family: "Ubuntu", sans-serif;
     background: var(--light);
-    width: 540px;
-    height: 800px;
+    width: 40%;
+    height: 80%;
     box-shadow: 0 0 6px #666;
     color: var(--dark);
 }
@@ -35,7 +35,7 @@ html, body {
     flex-flow: row nowrap;
     align-items: center;
     justify-content: space-between;
-    font-size: 24pt;
+    font-size: 100%;
     padding: 0 4%;
     box-shadow: 0 2px 8px #666;
 }
@@ -45,7 +45,8 @@ html, body {
 }
 
 .profile {
-    width: 80%;
+    max-width: 80%;
+    min-width: 40%;
     margin: 0 auto;
     margin-top: 10%;
     box-shadow: 0 0 10px var(--lightred);
@@ -58,13 +59,13 @@ html, body {
 }
 
 .profile__image {
-    width: 350px;
-    height: 350px;
+    width: 80%;
+    height: 80%;
     margin: 4% auto;
     background-color: var(--lightred);
 }
 
-.profile__picture {
+.picture__fill {
     width: 100%;
     height: 100%;
 }
