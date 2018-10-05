@@ -1,120 +1,289 @@
-/* Reset and initial css */
+/* Reset for html/body */
 html, body {
-    background-color: #f5fffd;
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    align-items: center;
     width: 100vw;
 }
 
-/* Variables */
+/* root psuedoclass for variables */
 :root {
     --light: #f6f8ff;
     --dark: #050517;
-    --like: #23ce6b;
-    --dislike: #fc0406;
+    --green: #23ce6b;
+    --red: #fc0406;
     --lightred: #f63854;
 }
 
-.app {
-    font-family: "Ubuntu", sans-serif;
-    background: var(--light);
-    width: 40%;
-    height: 80%;
-    box-shadow: 0 0 6px #666;
-    color: var(--dark);
+/* flex for body, start of responsive mobile layout */
+body {
+    background-color: var(--lightred);
+    font-family: 'Ubuntu', sans-serif;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    max-width: 100vw;
 }
 
 .header {
-    color: var(--lightred);
-    height: 50px;
+    background-color: var(--light);
     display: flex;
     flex-flow: row nowrap;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 100%;
-    padding: 0 4%;
-    box-shadow: 0 2px 8px #666;
+    justify-content: center;
 }
 
-.logo__type {
-    font-family: "Pacifico", "Ubuntu", sans-serif;
+.logo {
+    color: var(--lightred);
+    font-family: 'Pacifico', sans-serif;
+    font-weight: 400;
+    font-size: 2rem;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.main {
+    background: linear-gradient(var(--light), var(--lightred));
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
 }
 
 .profile {
-    max-width: 80%;
-    min-width: 40%;
-    margin: 0 auto;
-    margin-top: 10%;
-    box-shadow: 0 0 10px var(--lightred);
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
-    padding: 4% 0;
+    color: var(--light);
+    width: 100%;
 }
 
 .profile__image {
-    width: 80%;
-    height: 80%;
-    margin: 4% auto;
-    background-color: var(--lightred);
+    width: 60%;
+    margin: 0 auto;
 }
 
 .picture__fill {
     width: 100%;
-    height: 100%;
+    border: 4px solid var(--light);
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -o-border-radius: 25px;
 }
 
 .profile__info {
-    width: 80%;
+    width: 60%;
     margin: 0 auto;
 }
 
 .profile__name {
+    font-size: 1.6rem;
+    text-transform: capitalize;
     font-weight: 700;
-    justify-self: flex-start;
 }
 
 .profile__age {
     float: right;
 }
+
 .profile__home {
-    font-style: italic;
+    text-align: center;
+    text-transform: capitalize;
 }
 
-.buttons {
+.buttons__container {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    width: 80%;
+    padding-bottom: 1rem;
+}
+
+.btn {
+    color: var(--light);
+    border: 0;
+    background: none;
+}
+
+.btn__round {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 4rem;
+    -webkit-border-radius: 4rem;
+    -moz-border-radius: 4rem;
+    -ms-border-radius: 4rem;
+    -o-border-radius: 4rem;
+    font-size: 4rem;
+}
+
+.btn__round--small {
+    width: 3rem;
+    height: 3rem;
+    font-size: 2rem;
+    border-radius: 1.5rem;
+    -webkit-border-radius: 1.5rem;
+    -moz-border-radius: 1.5rem;
+    -ms-border-radius: 1.5rem;
+    -o-border-radius: 1.5rem;
+}
+
+.btn__rect {
+    font-size: 2rem;
+    padding: 1%;
+    width: 10rem;
+    border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
+    font-family: "Ubuntu", sans-serif;
+}
+
+.btn--red {
+    background-color: var(--red);
+    box-shadow: 0 0 1rem var(--red);
+}
+
+.btn--green {
+    background-color: var(--green);
+    box-shadow: 0 0 1rem var(--green);
+}
+
+.btn--light {
+    color: var(--lightred);
+    background-color: var(--light);
+    box-shadow: 1px 3px 1rem #66666679;
+}
+
+.clear {
+    clear: both;
+}
+
+.hidden {
+    display: none;
+}
+
+.mobile__buttons {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
+.sidebar {
+    background: var(--light);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100%;
+}
+
+.list__title {
+    padding: 0 2%;
+    font-weight: 400;
+    font-family: "Pacifico", sans-serif;
+    font-size: 1.5rem;
+}
+
+.list__item {
+    width: 100%;
+    display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 200px;
+    border-bottom: 1px solid #bbb;
+    padding: 1% 0;
 }
 
-.button {
-    width: 150px;
-    height: 150px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 0 6px #666;
-    border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
-    font-size: 38pt;
-    color: var(--light);
+.list__img {
+    height: 80px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
 }
 
-.button__dislike {
-    background: var(--dislike);
+.btn--lightred {
+    color: var(--lightred);
+    margin: 2%;
+    font-size: 1.4rem;
 }
 
-.button__like {
-    background: var(--like);
+@media(min-width: 738px) {
+    .btn__round {
+        width: 10rem;
+        height: 10rem;
+        border-radius: 5rem    ;
+        -webkit-border-radius: 5rem    ;
+        -moz-border-radius: 5rem    ;
+        -ms-border-radius: 5rem    ;
+        -o-border-radius: 5rem    ;
+    }
+
+    .mobile__buttons {
+        height: 6rem;
+    }
+
+    .logo {
+        font-size: 2.4rem;
+    }
+}
+
+@media(min-width: 1024px) {
+    html, body {
+        height: 100vh;
+        font-size: 1.3rem;
+    }
+    .hidden {
+        display: block;
+    }
+
+    .app {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        height: 100%;
+    }
+
+    .main {
+        flex-basis: 60%;
+        flex-grow: 0;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+    }
+    .sidebar {
+        position: relative;
+        flex-basis: 40%;
+        width: auto;
+        justify-self: flex-end;
+        height: 100%;
+        overflow-y: scroll;
+    }
+
+    .mobile__buttons {
+        display: none;
+    }
+
+    .button__round--small {
+        font-size: 1rem;
+    }
+
+    .profile__name {
+        font
+    }
+
+    .btn--lightred {
+        display: none;
+    }
+}
+
+@media(min-width: 1224px) {
+
+
+    .profile__image {
+        width: 30%;
+    }
+
+    .profile__info {
+        width: 30%;
+    }
 }
